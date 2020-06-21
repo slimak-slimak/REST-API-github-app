@@ -1,0 +1,7 @@
+${AnsiColor.YELLOW}  .   ____          _            __ _ _    ${AnsiColor.BLUE}      ______                  ________
+${AnsiColor.YELLOW} /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \   ${AnsiColor.BLUE}     / ____/___  _____       / / ____/___  ____ ___  ____ ___  ___  _____________
+${AnsiColor.YELLOW}( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \  ${AnsiColor.BLUE}    / /_  / __ \/ ___/  __  / / /   / __ \/ __ `__ \/ __ `__ \/ _ \/ ___/ ___/ _ \
+${AnsiColor.YELLOW} \\/  ___)| |_)| | | | | || (_| |  ) ) ) ) ${AnsiColor.BLUE}   / __/ / /_/ / /     / /_/ / /___/ /_/ / / / / / / / / / / /  __/ /  / /__/  __/
+${AnsiColor.YELLOW}  '  |____| .__|_| |_|_| |_\__, | / / / /  ${AnsiColor.BLUE}  /_/    \____/_/      \____/\____/\____/_/ /_/ /_/_/ /_/ /_/\___/_/   \___/\___/
+${AnsiColor.YELLOW} =========|_|==============|___/=/_/_/_/   ${AnsiColor.BLUE}
+${AnsiColor.BRIGHT_BLACK} :: Spring Boot & Jakub Wolny ::   v2.1.11.BUILD-SNAPSHOT ${Ansi.DEFAULT}
