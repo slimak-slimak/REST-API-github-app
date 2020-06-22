@@ -1,5 +1,7 @@
 package pl.wlny.jctask.apiGitHub.entity;
 
+import java.util.Objects;
+
 public class GitHubInfo {
     String fullName;
     String description;
@@ -55,4 +57,29 @@ public class GitHubInfo {
         this.createdAt = createdAt;
     }
 
+    @Override
+    public String toString() {
+        return "{\"fullName\":\"" + fullName + "\"" + "," +
+                "\"description\":\"" + description + "\"" + "," +
+                "\"cloneUrl\":\"" + cloneUrl + "\"" + "," +
+                "\"stars\":" + stars + "," +
+                "\"createdAt\":\"" + createdAt + "\"}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GitHubInfo that = (GitHubInfo) o;
+        return stars == that.stars &&
+                fullName.equals(that.fullName) &&
+                description.equals(that.description) &&
+                cloneUrl.equals(that.cloneUrl) &&
+                createdAt.equals(that.createdAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, description, cloneUrl, stars, createdAt);
+    }
 }

@@ -1,5 +1,7 @@
 package pl.wlny.jctask.apiGitHub.URL;
+
 import pl.wlny.jctask.apiGitHub.entity.GitHubParam;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 

@@ -1,5 +1,7 @@
 package pl.wlny.jctask.apiGitHub.entity;
 
+import java.util.Objects;
+
 public class GitHubNotFound {
     String message;
     String documentation_url;
@@ -25,5 +27,23 @@ public class GitHubNotFound {
         this.documentation_url = documentation_url;
     }
 
+    @Override
+    public String toString() {
+        return "{\"message\":\"" + message + "\"" + "," +
+                "\"documentation_url\":\"" + documentation_url + "\"}";
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GitHubNotFound that = (GitHubNotFound) o;
+        return message.equals(that.message) &&
+                documentation_url.equals(that.documentation_url);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(message, documentation_url);
+    }
 }

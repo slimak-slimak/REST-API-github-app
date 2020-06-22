@@ -17,22 +17,21 @@ public class JSONresponse {
 
     public HttpURLConnection getConnection(URL repoURL) {
         try {
-            HttpURLConnection con = (HttpURLConnection) repoURL.openConnection();
-            con.setRequestMethod("GET");
-            int responseCode = con.getResponseCode();
-            return con;
+            HttpURLConnection connnection = (HttpURLConnection) repoURL.openConnection();
+            connnection.setRequestMethod("GET");
+            return connnection;
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Connection to URL failure");
-           return null;
+            return null;
         }
 
     }
 
-    public String getStringInfo(HttpURLConnection connection)  {
+    public String getStringInfo(HttpURLConnection connection) {
         BufferedReader in = null;
         try {
-            if (connection.getResponseCode()==200) {
+            if (connection.getResponseCode() == 200) {
                 in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String inputLine;
                 StringBuffer response = new StringBuffer();
@@ -45,27 +44,25 @@ public class JSONresponse {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "{\n" +
-                "  \"message\": \"Not Found\",\n" +
-                "  \"documentation_url\": \"https://developer.github.com/v3/repos/#get\"\n" +
-                "}";
+        return new GitHubNotFound("Not Found", "https://developer.github.com/v3/repos/#get").toString();
     }
 
-    public Object getResponse(String getStringInfo)  {
+    public Object getResponse(String getStringInfo) {
         try {
             JSONObject myResponse = null;
             myResponse = new JSONObject(getStringInfo);
-            if (!myResponse.toString().isEmpty() && myResponse.toString().contains("full_name")){
+            if (!myResponse.toString().isEmpty() && myResponse.toString().contains("full_name")) {
                 return new GitHubInfo(
                         myResponse.getString("full_name"),
                         myResponse.getString("description"),
                         myResponse.getString("clone_url"),
                         myResponse.getInt("stargazers_count"),
-                        myResponse.getString("created_at"));}
-            } catch (JSONException jsonException) {
+                        myResponse.getString("created_at"));
+            }
+        } catch (JSONException jsonException) {
             jsonException.printStackTrace();
         }
-        return new GitHubNotFound("Not Found","https://developer.github.com/v3/repos/#get");
+        return new GitHubNotFound("Not Found", "https://developer.github.com/v3/repos/#get");
     }
 
 
